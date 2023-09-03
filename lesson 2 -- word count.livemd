@@ -1,0 +1,43 @@
+<!-- livebook:{"persist_outputs":true} -->
+
+# lesson 2 -- word count
+
+## Section
+
+```elixir
+filename = "lesson 2 -- word count.livemd"
+IO.puts(filename)
+```
+
+<!-- livebook:{"output":true} -->
+
+```
+lesson 2 -- word count.livemd
+```
+
+<!-- livebook:{"output":true} -->
+
+```
+:ok
+```
+
+```elixir
+words =
+  File.read!(filename)
+  |> String.split(~r{(\\n|[^\w'])+})
+  |> Enum.filter(fn x -> x != "" end)
+  |> Enum.count()
+  |> IO.puts()
+```
+
+<!-- livebook:{"output":true} -->
+
+```
+34
+```
+
+<!-- livebook:{"output":true} -->
+
+```
+:ok
+```
